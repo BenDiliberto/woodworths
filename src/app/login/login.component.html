@@ -1,0 +1,22 @@
+<form [formGroup]="form" (ngSubmit)="login()">
+
+  <div class="row">
+    <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="username" type="text"/>
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput formControlName="password" type="password"/>
+      <mat-icon matSuffix>lock</mat-icon>
+    </mat-form-field>
+  </div>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Submit</button>
+
+  <button mat-raised-button color="primary" (click)="register()" [disabled]="!form.valid">Register</button>
+</form>

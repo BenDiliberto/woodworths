@@ -1,0 +1,20 @@
+<h3>Frequently Asked Questions</h3>
+
+<mat-form-field class="example-full-width">
+  <mat-label>Search</mat-label>
+  <input type="text" (input)="onSearchChange($event)" matInput>
+  <mat-icon matSuffix>search</mat-icon>
+</mat-form-field>
+
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let faq of filteredFaqs">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ faq.question }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <p>{{ faq.answer }}</p>
+
+  </mat-expansion-panel>
+</mat-accordion>

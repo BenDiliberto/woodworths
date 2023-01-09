@@ -1,0 +1,28 @@
+<h3>Store</h3>
+
+<div class="row" *ngFor="let item of getItems()">
+  <h4>{{ item.name }}</h4>
+  <h3>£{{ item.price | number: '1.2-2' }}</h3>
+  <img src="{{ item.imageUrl }}" class="col-3">
+  <button mat-raised-button color="primary" (click)="addItemToBasket(item.id)">Add to Basket</button>
+</div>
+
+<div class="row">
+  <div class="row">
+    <h3>Basket</h3>
+    <button mat-raised-button color="primary" (click)="resetBasket()" class="col-3">Reset Basket</button>
+  </div>
+
+  <div class="row" *ngFor="let item of getBasket()">
+    <p>{{ item.name }}</p>
+    <p>£{{ item.price | number: '1.2-2' }}</p>
+<!--    <button mat-raised-button color="primary" (click)="removeItemFromBasket(item.id)" class="col-3">Remove from Basket</button>-->
+  </div>
+
+  <h6 *ngIf="!loginService.loggedIn">Login to get discount! You could save £{{ getDiscount() | number: '1.2-2' }}!</h6>
+  <h6 *ngIf="loginService.loggedIn">User 20% Discount: £{{ getDiscount() | number: '1.2-2' }}</h6>
+  <h4 *ngIf="!loginService.loggedIn">Total: £{{ getBasketTotal() | number: '1.2-2' }}</h4>
+  <h4 *ngIf="loginService.loggedIn">Total: Was - £{{ getBasketTotal() | number: '1.2-2' }} | Now - £{{ getBasketTotal() - getDiscount() | number: '1.2-2' }}</h4>
+
+  <button mat-raised-button color="primary" (click)="checkout()">Checkout</button>
+</div>

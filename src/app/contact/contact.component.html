@@ -1,0 +1,46 @@
+<h3>Contact Us</h3>
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div class="row">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" type="text"/>
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field appearance="fill">
+      <mat-label>Email Address</mat-label>
+      <input matInput formControlName="email" type="email"/>
+      <mat-icon matSuffix>email</mat-icon>
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field appearance="fill">
+      <mat-label>Phone Number</mat-label>
+      <input matInput formControlName="telephone" type="tel"/>
+      <mat-icon matSuffix>phone</mat-icon>
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field appearance="fill">
+      <mat-label>Subject</mat-label>
+      <input matInput formControlName="subject" type="text"/>
+      <mat-icon matSuffix>short_text</mat-icon>
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field appearance="fill">
+      <mat-label>Message</mat-label>
+      <textarea matInput formControlName="message" type="text"></textarea>
+      <mat-icon matSuffix>message</mat-icon>
+      <mat-hint>Max 200 characters</mat-hint>
+    </mat-form-field>
+  </div>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Submit</button>
+</form>
